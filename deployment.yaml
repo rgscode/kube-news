@@ -46,7 +46,7 @@ metadata:
   labels:
     app: web
 spec:
-  replicas: 1
+  replicas: 10
   selector:
     matchLabels:
       app: web
@@ -57,7 +57,7 @@ spec:
     spec:
       containers:
       - name: kube-news
-        image: rafaelgomesx/kube-news:v1
+        image: rafaelgomesx/kube-news:latest
         ports:
         - containerPort: 8080
         env:
@@ -79,7 +79,6 @@ spec:
       app: web
   ports:
     - port: 80
-      nodePort: 30000
       targetPort: 8080
       protocol: TCP
-  type: NodePort
+  type: LoadBalancer
