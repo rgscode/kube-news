@@ -46,7 +46,7 @@ metadata:
   labels:
     app: web
 spec:
-  replicas: 10
+  replicas: 2
   selector:
     matchLabels:
       app: web
@@ -57,7 +57,7 @@ spec:
     spec:
       containers:
       - name: kube-news
-        image: rafaelgomesx/kube-news:latest
+        image: rafaelgomesx/kube-news:{{TAG}}
         ports:
         - containerPort: 8080
         env:
